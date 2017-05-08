@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ page_title | upper }}{% endblock %}
+
+{% block content %}
+<ul>
+  <li><a href=% url 'homepage' %></li>
+</ul>
+<h1>
+  {% if page_title %}
+  {{ page_title | lower }}
+  {% else %}
+  Default title
+  {%endif%}
+</h1>
+
+<ul>
+  {% for n in numbers %}
+  <li>{{ n }}</li>
+  {% endfor %}
+
+<img src='{% static 'astroid4.png' %}' alt="asteroid">
+{% endblock %}

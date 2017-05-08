@@ -16,6 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+import homepage.views
+import experiment.views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', homepage.views.homepage),
+    url(r'^contact', homepage.views.contact, name='contact'),
+    url(r'^experiment', experiment.views.experiment, name='experiment'),
+    url(r'^medium', experiment.views.medium, name='medium'),
 ]

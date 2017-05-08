@@ -1,0 +1,27 @@
+<DOCTYPE html>
+  {%load static%}
+<html>
+
+  <head>
+    <title>Medium</title>
+    <meta charset="UTF-8">
+    <link href="{% static "medium.css" %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|PT+Serif" rel="stylesheet">
+  </head>
+
+  <body>
+    {% block header %}
+    {% endblock %}
+    <main>
+      {% block profile %}
+      {% endblock %}
+      {% block content %}
+      {% endblock %}
+
+    </main>
+
+    <div class="foot">
+        <div></div>
+    </div>
+  </body>
+</html>

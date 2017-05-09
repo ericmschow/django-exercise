@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'localhost',
     'http://www.ericmschow.com',
     'ericmschow.com',
+    'vikings.ericmschow.com',
     ]
 
 

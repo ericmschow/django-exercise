@@ -18,11 +18,11 @@ from django.contrib import admin
 
 import homepage.views
 import experiment.views
-from polls import views, urls
+#from polls import views, urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('polls.urls')),
+    #url(r'^', include('polls.urls')),
     url(r'^$', homepage.views.homepage),
     url(r'^contact/$', homepage.views.contact, name='contact'),
     url(r'^experiment/$', experiment.views.experiment, name='experiment'),

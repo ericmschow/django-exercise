@@ -19,7 +19,7 @@ def deploy ():
     run('git pull')
 
     with prefix(VENV):
-      run('pip install -r portfolio/requirements.txt  > install.log')
+      run('pip install -r requirements.txt  > install.log')
 
     run('pm2 restart all > restart.log')
 

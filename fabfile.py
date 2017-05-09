@@ -3,7 +3,7 @@ from fabric.api import run, env, sudo, cd, prefix
 env.hosts = ['45.76.235.74']
 env.user = 'eric'
 
-DIR = '/home/eric/django-exercise'
+DIR = '/home/eric/django-exercise/portfolio'
 VENV = 'source /home/eric/.virtualenvs/dj-exercise/bin/activate && source SECRETS.ENV'
 
 def start ():

@@ -1,1 +1,27 @@
 {% extends 'base.html' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+<p>Please enter your name, email address, and message.</p>
+<form action="/contact/" method="POST">
+    {% csrf_token %}
+  <label>Name: </label>
+  <input type='text' name="name" placeholder="Name" >
+  <br>
+  <label>Email address: </label>
+  <input type="email" name="email" placeholder="___@example.com">
+  <br>
+  <label>Message: </label>
+  <br>
+  <textarea name="message" placeholder="Your message">
+
+  </textarea>
+  <br>
+  <input type="file" name="attachment">
+  <br>
+  <input type="submit" value="Send email">
+</form>
+{% endblock %}

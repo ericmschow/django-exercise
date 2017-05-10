@@ -27,5 +27,7 @@ urlpatterns = [
     url(r'^contact/$', homepage.views.contact, name='contact'),
     url(r'^experiment/$', experiment.views.experiment, name='experiment'),
     url(r'^medium/$', experiment.views.medium, name='medium'),
+    # url(r'^hello/$', homepage.views.hello, name='hello'),
+    url(r'^thanks/$', homepage.views.thanks, name='thanks')
 
 ]

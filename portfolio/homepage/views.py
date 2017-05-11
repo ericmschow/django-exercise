@@ -19,21 +19,24 @@ def thanks(request):
     return TemplateResponse(request, 'thanks.html', context)
 
 def contact (request):
-    form = forms.emailForm(request.POST or None)
+    form = forms.emailForm(request.POST or None, request.FILES or None)
 
     if request.method == 'POST':
         if form.is_valid():
+            print(form.cleaned_data)
             email = EmailMessage()
             email.subject = form.cleaned_data['name']
             email.body = form.cleaned_data['message']
             email.from_email = form.cleaned_data['email']
             email.to = ['eric.m.schow@gmail.com']
 
-            email.attach_file(form.cleaned_data['attachment'])
-            email.send()
+            # email.attach(form.cleaned_data['attachment'].name, form.cleaned_data['attachment'].read())
+            email.send(fail_silently=False)
             return http.HttpResponseRedirect('/thanks/')
         else:
             print(form.errors)
+    else:
+        print('Not POST')
 
 
     context = {}

@@ -18,16 +18,20 @@ from django.contrib import admin
 
 import homepage.views
 import experiment.views
+import blog.views
+
 #from polls import views, urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^polls/', include('blog.urls')),
     #url(r'^', include('polls.urls')),
     url(r'^$', homepage.views.homepage),
     url(r'^contact/$', homepage.views.contact, name='contact'),
     url(r'^experiment/$', experiment.views.experiment, name='experiment'),
     url(r'^medium/$', experiment.views.medium, name='medium'),
     # url(r'^hello/$', homepage.views.hello, name='hello'),
-    url(r'^thanks/$', homepage.views.thanks, name='thanks')
-
+    url(r'^thanks/$', homepage.views.thanks, name='thanks'),
+    # url(r'^blog/(\S+)/(\S+)/$', blog.views.blog_post, name='blog post'),
+    # url(r'^blog/(\S+)/$', blog.views.blog_index, name='blog index'),
 ]

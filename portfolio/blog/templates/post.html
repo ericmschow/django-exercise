@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ post.title }} - {{ post.blog.name }}
+{% endblock %}
+
+{% block content %}
+
+<h2>
+  {{ post.title }}
+</h2>
+
+<p>
+  {{ post.body | linebreaksbr }}
+</p>
+
+<a href= ../../{{post.blog.slug}}>Back to {{post.blog.name }} </a>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ poll.question }}
+{% endblock %}
+
+{% block content %}
+
+<h2>
+  {{ poll.question }}
+</h2>
+
+<form name='form' action=/poll/{{poll.slug}}/ method='POST'>
+  {% csrf_token %}
+  {{ form }}
+  <p>spacer</p>
+  <label for="form">Your vote:</label> <br> <br>
+  {% for choice in choices %}
+  <label> {{ forloop.counter }}. {{ choice.answer }}
+  <input type=radio name="choice" id="choice{{ forloop.counter }}" value= "{{ choice.id }}" required=False>
+  <br>
+  {% endfor %}
+  <input type='submit' value='Vote'>
+</form>
+
+{% endblock %}

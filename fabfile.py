@@ -20,6 +20,7 @@ def deploy ():
 
     with prefix(VENV):
       run('pip install -r requirements.txt  > install.log')
+      run('python manage.py migrate')
 
     run('pm2 restart all > restart.log')
 

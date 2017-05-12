@@ -1,0 +1,24 @@
+<!DOCTYPE html>{% load static %}
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>
+<hr>
+<h3>Categories:</h3>
+<ul>
+  {% for category in question.categories.all %}
+  <li> {{ category }} </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'polls:detail' related.id %}">Related poll: {{related}}</a>
+<br>
+<a href="{% url 'polls:index'  %}">Return to polls list</a>
